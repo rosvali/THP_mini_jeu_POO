@@ -4,9 +4,11 @@ Bundler.require
 require_relative 'lib/game'
 require_relative 'lib/player'
 
+#Initialisation des joueurs
 p1 = Player.new("Josiane")
 p2 = Player.new("José")
 
+#Combats entre les joueurs
 while p1.life_points > 0 && p2.life_points > 0
 	puts "Voici l'état de chaque joueur :"
 	p1.show_state
@@ -18,4 +20,5 @@ while p1.life_points > 0 && p2.life_points > 0
 	p2.attacks(p1)
 	puts "----------"
 end
-binding.pry
+
+# binding.pry

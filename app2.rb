@@ -4,13 +4,13 @@ Bundler.require
 require_relative 'lib/game'
 require_relative 'lib/player'
 
-def menu
+def menu(p1, p2)
 	puts "Quelle action veux-tu effectuer ?\n"
 	puts "a - chercher une meilleure arme"
 	puts "s - chercher à se soigner\n"
 	puts "attaquer un joueur en vue :"
-	puts "0 - Josiane a 10 points de vie"
-	puts "1 - José a 10 points de vie"
+	puts "0 - Josiane a #{p1.life_points} points de vie"
+	puts "1 - José a #{p2.life_points} points de vie"
 end
 
 puts "------------------------------------------------"
@@ -31,7 +31,7 @@ puts "\n----------Le combat commence !-----------"
 
 while h1.life_points > 0 && (p1.life_points > 0 || p2.life_points > 0)
 	puts "\n----------Menu--------------------------"
-	menu
+	menu(p1, p2)
 	puts "\n----------Ton tour----------------------"
 	print "> "
 	case gets.chomp
@@ -50,6 +50,8 @@ while h1.life_points > 0 && (p1.life_points > 0 || p2.life_points > 0)
 	p2.show_state
 	sleep 2
 end
+
 puts "\nLa partie est terminée"
 puts h1.life_points > 0 ? "Bravo ! Tu as gagné la partie" : "Bouuuu tu as perdu !"
+
 # binding.pry
