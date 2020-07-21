@@ -36,11 +36,9 @@ class Game
 
 #Appelle une méthode en fonction du choix de HumanPlayer
 	def menu_choice(choice)
-		if choice == "a" || choice == "s"
-			case choice
-			when "a" then @player.search_weapon
-			when "s" then @player.search_health_pack 
-			end
+		case choice
+		when "a" then @player.search_weapon
+		when "s" then @player.search_health_pack 
 		else
 			@player.attacks(@ennemies[choice.to_i - 1]) if choice.to_i != 0 && @ennemies[choice.to_i - 1]
 		end
